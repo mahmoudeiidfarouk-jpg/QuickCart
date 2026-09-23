@@ -6,6 +6,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+    const productUrl = `/products/${product._id}`;
+
     return (
         <article className="product-card">
 
@@ -32,17 +34,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
                         {product.price} EGP
                     </strong>
 
-                    <button
+                    <a
+                        href={productUrl}
                         className="product-cart-button"
-                        aria-label={`Add ${product.name} to cart`}
+                        aria-label={`View ${product.name}`}
                     >
                         <ShoppingCart size={18} />
-                    </button>
+                    </a>
 
                 </div>
 
                 <a
-                    href={`/products/${product._id}`}
+                    href={productUrl}
                     className="product-details"
                 >
                     View Details
