@@ -10,10 +10,17 @@ const app = express();
 
 app.use(
     cors({
-        origin: [
-            "http://localhost:5173",
-            "https://quick-cart-24wbub9ub-dolleeid.vercel.app",
-        ],
+        origin: (origin, callback) => {
+            if (
+                !origin ||
+                origin === "http://localhost:5173" ||
+                origin.endsWith(".vercel.app")
+            ) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
     })
 );
 
