@@ -5,7 +5,6 @@ import {
     Menu,
     X,
     LogOut,
-    Plus,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
