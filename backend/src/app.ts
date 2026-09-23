@@ -10,7 +10,10 @@ const app = express();
 
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: [
+            "http://localhost:5173",
+            "https://quick-cart-24wbub9ub-dolleeid.vercel.app",
+        ],
     })
 );
 
